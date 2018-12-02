@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net45;portable-net45+win8+wpa81</TargetFrameworks>
+  </PropertyGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'portable-net45+win8+wpa81'">
+    <PackageReference Include="MonoGame.Framework.Content.Pipeline.Portable">
+      <Version>3.7.0.1708</Version>
+    </PackageReference>
+    <PackageReference Include="MonoGame.Framework.Portable">
+      <Version>3.7.0.1708</Version>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net45'">
+    <PackageReference Include="MonoGame.Framework.Content.Pipeline.Portable">
+      <Version>3.7.0.1708</Version>
+    </PackageReference>
+    <PackageReference Include="MonoGame.Framework.Portable">
+      <Version>3.7.0.1708</Version>
+    </PackageReference>
+  </ItemGroup>
+
+
+
+  <PropertyGroup Condition="'$(TargetFramework)' == 'portable-net45+win8+wpa81'">
+    <TargetFrameworkIdentifier>.NETPortable</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Profile111</TargetFrameworkProfile>
+    <NugetTargetMoniker>.NETPortable,Version=v0.0,Profile=Profile111</NugetTargetMoniker>
+    <LanguageTargets>$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets</LanguageTargets>
+  </PropertyGroup>
+
+</Project>
