@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28010.2048
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShackGames.MonoGame.Toolbox", "src\ShackGames.MonoGame.Toolbox\ShackGames.MonoGame.Toolbox.csproj", "{BB5E8B67-50D6-4DBA-ADA3-8BBD4C1F6E21}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example1", "src\Example1\Example1.csproj", "{E392DE4B-602A-4EE2-8E3C-CA512683D9DC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{BB5E8B67-50D6-4DBA-ADA3-8BBD4C1F6E21}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BB5E8B67-50D6-4DBA-ADA3-8BBD4C1F6E21}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BB5E8B67-50D6-4DBA-ADA3-8BBD4C1F6E21}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E392DE4B-602A-4EE2-8E3C-CA512683D9DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E392DE4B-602A-4EE2-8E3C-CA512683D9DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E392DE4B-602A-4EE2-8E3C-CA512683D9DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E392DE4B-602A-4EE2-8E3C-CA512683D9DC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
