@@ -1,37 +1,33 @@
 ﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Content;
 using ShackGames.MonoGame.Toolbox.Content;
 using ShackGames.MonoGame.Toolbox.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ShackGames.MonoGame.Toolbox
 {
-    public abstract class ExtendedGame : Game
+    public abstract class GameBase : Game
     {
         protected GraphicsDeviceManager graphics;
 
         public GameConfiguration GameConfiguration { get; set; } = GameConfiguration.Default();
         public new ExtendedContentManager Content { get; }
-        public ExtendedContentManager ContentLoader { get { return Content; } }
+        public ExtendedContentManager Storage { get { return Content; } }
 
-        public ExtendedGame()
+        public GameBase()
         {
             graphics = new GraphicsDeviceManager(this);
 
             Content = new ExtendedContentManager(this, GameConfiguration.ContentRootDirectory);
         }
 
-        public ExtendedGame(GameConfiguration configuration)
+        public GameBase(GameConfiguration configuration)
         {
             GameConfiguration = configuration;
 
-            graphics = new GraphicsDeviceManager(this);
-            graphics.PreferredBackBufferWidth = GameConfiguration.PreferredBackBufferWidth;
-            graphics.PreferredBackBufferHeight = GameConfiguration.PreferredBackBufferHeight;
+            graphics = new GraphicsDeviceManager(this)
+            {
+                PreferredBackBufferWidth = GameConfiguration.PreferredBackBufferWidth,
+                PreferredBackBufferHeight = GameConfiguration.PreferredBackBufferHeight
+            };
             graphics.ApplyChanges();
 
             Content = new ExtendedContentManager(this, GameConfiguration.ContentRootDirectory);            

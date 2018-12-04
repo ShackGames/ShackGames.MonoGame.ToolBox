@@ -16,11 +16,11 @@ namespace Example1
     /// <summary>
     /// This is the main type for your game.
     /// </summary>
-    public class ExampleGame : ExtendedGame
+    public class ExampleGame : GameBase
     {
         SpriteBatch spriteBatch;
         SpriteFont defaultFont;
-        string contentStr;
+        string contentStr, otherStr;
         MapDef mapDef;
 
         public ExampleGame() : base(new GameConfiguration
@@ -55,8 +55,9 @@ namespace Example1
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             defaultFont = Content.Load<SpriteFont>("DefaultFont");
-            contentStr = ContentLoader.ReadAllText("Hello.txt");
-            mapDef = ContentLoader.DeserializeJson<MapDef>("example-def.json");
+            contentStr = Storage.ReadAllText("Hello.txt");
+            mapDef = Storage.DeserializeJson<MapDef>("example-def.json");
+            otherStr = Storage.ReadAllText("Other.txt", rootDirectory: "OtherContent");
         }
 
         /// <summary>
