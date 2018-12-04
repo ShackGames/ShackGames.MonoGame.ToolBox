@@ -14,21 +14,27 @@ namespace ShackGames.MonoGame.Toolbox
     {
         protected GraphicsDeviceManager graphics;
 
+        public GameConfiguration GameConfiguration { get; set; } = GameConfiguration.Default();
         public new ExtendedContentManager Content { get; }
+        public ExtendedContentManager ContentLoader { get { return Content; } }
 
-        public ExtendedGame() : this(GameConfiguration.Default())
+        public ExtendedGame()
         {
+            graphics = new GraphicsDeviceManager(this);
 
+            Content = new ExtendedContentManager(this, GameConfiguration.ContentRootDirectory);
         }
 
         public ExtendedGame(GameConfiguration configuration)
         {
+            GameConfiguration = configuration;
+
             graphics = new GraphicsDeviceManager(this);
-            graphics.PreferredBackBufferWidth = configuration.PreferredBackBufferWidth;
-            graphics.PreferredBackBufferHeight = configuration.PreferredBackBufferHeight;
+            graphics.PreferredBackBufferWidth = GameConfiguration.PreferredBackBufferWidth;
+            graphics.PreferredBackBufferHeight = GameConfiguration.PreferredBackBufferHeight;
             graphics.ApplyChanges();
 
-            Content = new ExtendedContentManager(this, configuration.ContentRootDirectory);            
+            Content = new ExtendedContentManager(this, GameConfiguration.ContentRootDirectory);            
         }
     }
 }

@@ -3,9 +3,16 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using ShackGames.MonoGame.Toolbox;
 using ShackGames.MonoGame.Toolbox.Models;
+using System.Collections.Generic;
 
 namespace Example1
 {
+    public class MapDef
+    {
+        public string Name { get; set; }
+        public List<string> AssetNames { get; set; }
+    }
+
     /// <summary>
     /// This is the main type for your game.
     /// </summary>
@@ -13,7 +20,9 @@ namespace Example1
     {
         SpriteBatch spriteBatch;
         SpriteFont defaultFont;
-        
+        string contentStr;
+        MapDef mapDef;
+
         public ExampleGame() : base(new GameConfiguration
         {
             PreferredBackBufferWidth = 1080,
@@ -46,6 +55,8 @@ namespace Example1
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             defaultFont = Content.Load<SpriteFont>("DefaultFont");
+            contentStr = ContentLoader.ReadAllText("Hello.txt");
+            mapDef = ContentLoader.DeserializeJson<MapDef>("example-def.json");
         }
 
         /// <summary>
@@ -82,7 +93,7 @@ namespace Example1
 
             spriteBatch.Begin();
 
-            spriteBatch.DrawString(defaultFont, "Example 1", Vector2.Zero, Color.White);
+            spriteBatch.DrawString(defaultFont, contentStr, Vector2.Zero, Color.White);
 
             spriteBatch.End();
 
